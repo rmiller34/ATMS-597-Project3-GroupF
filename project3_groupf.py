@@ -80,12 +80,11 @@ DJF_daily_precip=pd_DJF_daily_precip.replace(-99999.000000,NaN)
 #Save 95th precentile data
 DJF_daily_precip['precip'].quantile(.95)
 
-DJF_daily_precip['precip']>16.757933
-rslt_df = dataframe[dataframe['Percentage'] > 80]
-
 DJF_daily_precip_95=DJF_daily_precip[DJF_daily_precip['precip']>DJF_daily_precip['precip'].quantile(0.95)]
 
 DJF_daily_precip_95
 
 print(DJF_daily_precip_95.index)
+
+DJF_daily_precip['precip'].hist(cumulative=True)
 
