@@ -130,16 +130,16 @@ data_2017_d = data_2017.sel(time=~data_2017.indexes['time'].duplicated())
 data_2018_d = data_2018.sel(time=~data_2018.indexes['time'].duplicated())
 
 # Merge the data into one file
-yearly_data = xr.merge([data_1996, data_1997, data_1998, data_1999, data_2000, 
-                      data_2001, data_2002, data_2003, data_2004, data_2005, 
-                      data_2006, data_2007, data_2008, data_2009, data_2010, 
-                      data_2011, data_2012, data_2013, data_2014_d, 
-                      data_2015, data_2016, data_2017_d, data_2018_d, 
-                      data_2019])
+yearly_data = xr.merge([data_1996, data_1997, data_1998, data_1999, data_2000,
+                       data_2001, data_2002, data_2003, data_2004, data_2005,
+                       data_2006, data_2007, data_2008, data_2009, data_2010,
+                       data_2011, data_2012, data_2013, data_2014_d,
+                       data_2015, data_2016, data_2017_d, data_2018_d,
+                       data_2019])
 
 # Create a date range to select only the desired DJF months from the larger
 # precipitation dataset
-dates=pd.date_range('19961001', '20191130')
+dates = pd.date_range('19961001', '20191130')
 df = pd.DataFrame({'a': range(8461)}, index=dates)
 
 season = ((df.index.month % 12 + 3) // 3).map({1:'DJF', 2: 'MAM', 3:'JJA', +
