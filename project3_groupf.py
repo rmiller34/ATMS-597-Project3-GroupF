@@ -190,4 +190,3 @@ plt.title('Cumulative Distribution Function of Cordoba, Argentina DJF Daily' +
 plt.text(0, 0.96, '95th Percentile')
 plt.xlabel('Precipitation (mm)')
 plt.ylabel('Probability')
-
