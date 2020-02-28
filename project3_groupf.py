@@ -168,11 +168,16 @@ DJF_daily_precip1 = pd_DJF_daily_precip.replace(-99999.000000, NaN)
 DJF_daily_precip1['precip'].quantile(.95)
 
 # Save days where the DJF daily precipitation was above the 95th percentile
-DJF_daily_precip_95 = DJF_daily_precip1[DJF_daily_precip1['precip'] > +
+DJF_daily_precip_95 = DJF_daily_precip1[DJF_daily_precip1['precip'] >= +
                                       DJF_daily_precip1['precip'].quantile
                                       (0.95)]
 
-# View the DJF 95th percentile data
+# Mount google drive to save .nc file
+from google.colab import drive
+drive.mount('/content/drive',force_remount=True)
+
+# Save to a netCDF file for future use and view the DJF 95th percentile data
+(DJF_daily_precip_95.to_xarray()).to_netcdf('DJF.nc')
 DJF_daily_precip_95
 
 # View the days of the DJF 95th percentile precipitation
